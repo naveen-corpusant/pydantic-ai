@@ -672,7 +672,7 @@ class GeminiStreamedResponse(StreamedResponse):
                 if part.thought_signature:
                     signature = base64.b64encode(part.thought_signature).decode('utf-8')
                     yield self._parts_manager.handle_thinking_delta(
-                        vendor_part_id='thinking',
+                        vendor_part_id=uuid4(),
                         signature=signature,
                         provider_name=self.provider_name,
                     )
